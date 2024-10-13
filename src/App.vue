@@ -1,16 +1,7 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
-import {
-  VAppBar,
-  VAppBarNavIcon,
-  VMain,
-  VList,
-  VListItem,
-  VNavigationDrawer,
-  VLayout,
-  VDivider,
-} from 'vuetify/components'
+import { RouterView } from 'vue-router'
+import { VAppBar, VAppBarNavIcon, VMain } from 'vuetify/components'
+import Sidebar from './components/Sidebar.vue'
 </script>
 
 <template>
@@ -23,29 +14,7 @@ import {
       <v-app-bar-title>Gmail</v-app-bar-title>
     </v-app-bar>
 
-    <v-navigation-drawer permanent fixed>
-      <v-list-item
-        prepend-avatar="https://randomuser.me/api/portraits/men/78.jpg"
-        title="John Leider"
-      ></v-list-item>
-
-      <v-divider></v-divider>
-
-      <v-list density="compact" nav>
-        <v-list-item
-          prepend-icon="mdi-view-dashboard"
-          title="Home"
-          value="home"
-          to="/"
-        ></v-list-item>
-        <v-list-item
-          prepend-icon="mdi-forum"
-          title="About"
-          value="about"
-          to="/about"
-        ></v-list-item>
-      </v-list>
-    </v-navigation-drawer>
+    <Sidebar />
 
     <v-layout class="tw-mt-16 tw-ml-64">
       <v-main style="height: 250px">

@@ -1,27 +1,64 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
+import {
+  VAppBar,
+  VAppBarNavIcon,
+  VMain,
+  VList,
+  VListItem,
+  VNavigationDrawer,
+  VLayout,
+  VDivider,
+} from 'vuetify/components'
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+  <v-app>
+    <v-app-bar>
+      <template v-slot:prepend>
+        <v-app-bar-nav-icon></v-app-bar-nav-icon>
+      </template>
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+      <v-app-bar-title>Gmail</v-app-bar-title>
+    </v-app-bar>
 
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
+    <v-navigation-drawer permanent fixed>
+      <v-list-item
+        prepend-avatar="https://randomuser.me/api/portraits/men/78.jpg"
+        title="John Leider"
+      ></v-list-item>
 
-  <RouterView />
+      <v-divider></v-divider>
+
+      <v-list density="compact" nav>
+        <v-list-item
+          prepend-icon="mdi-view-dashboard"
+          title="Home"
+          value="home"
+          to="/"
+        ></v-list-item>
+        <v-list-item
+          prepend-icon="mdi-forum"
+          title="About"
+          value="about"
+          to="/about"
+        ></v-list-item>
+      </v-list>
+    </v-navigation-drawer>
+
+    <v-layout class="tw-mt-16 tw-ml-64">
+      <v-main style="height: 250px">
+        <div class="tw-flex tw-justify-center tw-align-middle tw-h-8">
+          <RouterView />
+        </div>
+      </v-main>
+    </v-layout>
+  </v-app>
 </template>
 
 <style scoped>
-header {
+/* header {
   line-height: 1.5;
   max-height: 100vh;
 }
@@ -81,5 +118,5 @@ nav a:first-of-type {
     padding: 1rem 0;
     margin-top: 1rem;
   }
-}
+} */
 </style>
